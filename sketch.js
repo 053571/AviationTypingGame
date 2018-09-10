@@ -9,36 +9,18 @@ var graspTime;
 var waitTime;
 
 // all airplane images placeholder
-var airplane1;
-var airplane2;
-var airplane3;
-var airplane4;
-var airplane5;
-var airplane6;
-var airplane7;
-var airplane8;
-var airplane9;
-var airplane10;
+var airplanes = [];
 
 var pictureFrame;
 
 //function to get airplane images 
 function preload(){
+
+  for (var i = 0; i < 10; i++)
+  {
+	  airplanes[i] = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Plane'+(i+1)+'.jpg');
+  }
   
-  airplane1 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Boeing737.jpg');
-  airplane2 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/AirbusA330.jpg');
-  airplane3 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Boeing787.jpg');
-
-
-  airplane4 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Boeing747.jpg');
-  airplane5 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/AirbusA350.jpg');
- 
-  airplane6 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Embraer190.jpg');
-  airplane7 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Boeing777.jpg');
-  airplane8 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Boeing767.jpg');
-  airplane9 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/AirbusA380.jpg');
-  airplane10 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/AirbusA320.jpg');
-
 
   pictureFrame = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/AirbusA320.jpg');
 }
@@ -63,13 +45,21 @@ function setup(){
 
 }
 function draw(){
-  //draw circle in centre of sketch
+
+   //draw circle in centre of sketch
   background(255,255,0);
+
+  section1_airplanes();
+  
+}
+
+function section1_airplanes()
+{
   
   
   if (counter == 0)
   {
-    image(airplane1,10,10,960/4,640/4);
+    image(airplanes[0],10,10,960/4,640/4);
     fill(0,0,0);
     text("Boeing737",10,50);
     if (inp.value() == "Boeing737" || inp.value() == "737" || inp.value() == "B737")
@@ -95,10 +85,10 @@ function draw(){
 
   if (counter == 2)
   {
-    image(airplane2,10,10);
+    image(airplanes[1],10,10);
     fill(0,0,0);
     text("AirbusA330",10,50);
-    if (inp.value() == "AirbusA330" || "Airbus330" || "A330")
+    if (inp.value() == "AirbusA330" || inp.value() == "Airbus330" || inp.value() == "A330")
     {
       startTime = frameCount;
       counter++;
@@ -120,8 +110,8 @@ function draw(){
 
 if (counter == 4)
   {
-    image(airplane3,10,10);
-    if (inp.value() == "Boeing787 || Boeing787Dreamliner" || "Boeing DreamLiner" || "B787" || "B787Dreamliner")
+    image(airplanes[2],10,10);
+    if (inp.value() == "Boeing787" || inp.value() == "Boeing787Dreamliner" || inp.value() == "Boeing DreamLiner" || inp.value() == "B787" || inp.value() == "B787Dreamliner")
     {
       startTime = frameCount;
       counter++;
@@ -143,8 +133,8 @@ if (counter == 4)
 
   if (counter == 6)
   {
-    image(airplane4,10,10);
-    if (inp.value() == "Boeing747" || "B747" || "Boeing747JumboJet")
+    image(airplanes[3],10,10);
+    if (inp.value() == "Boeing747" || inp.value() == "B747" || inp.value() == "Boeing747JumboJet")
     {
       startTime = frameCount;
       counter++;
@@ -166,8 +156,8 @@ if (counter == 4)
 
   if (counter == 8)
   {
-    image(airplane5,10,10);
-    if (inp.value() == "AirbusA350" || "350" || "Airbus350" || "AirbusA350XWB")
+    image(airplanes[4],10,10);
+    if (inp.value() == "AirbusA350" || inp.value() == "350" || inp.value() == "Airbus350" || inp.value() == "AirbusA350XWB")
     {
       startTime = frameCount;
       counter++;
@@ -189,8 +179,8 @@ if (counter == 4)
 
   if (counter == 10)
   {
-    image(airplane6,10,10);
-    if (inp.value() == "Embraer190" || "E190")
+    image(airplanes[5],10,10);
+    if (inp.value() == "Embraer190" || inp.value() == "E190")
     {
       startTime = frameCount;
       counter++;
@@ -212,8 +202,8 @@ if (counter == 4)
 
 if (counter == 12)
   {
-    image(airplane7,10,10);
-    if (inp.value() == "Boeing777" || "B777")
+    image(airplanes[6],10,10);
+    if (inp.value() == "Boeing777" || inp.value() == "B777")
     {
       startTime = frameCount;
       counter++;
@@ -235,8 +225,8 @@ if (counter == 12)
 
   if (counter == 14)
   {
-    image(airplane8,15,20);
-    if (inp.value() == "Boeing767" || "B767" || "Boeing767")
+    image(airplanes[7],15,20);
+    if (inp.value() == "Boeing767" || inp.value() == "B767" || inp.value() == "Boeing767")
     {
       startTime = frameCount;
       counter++;
@@ -258,8 +248,8 @@ if (counter == 12)
 
 if (counter == 16)
   {
-    image(airplane9,10,10);
-    if (inp.value() == "AirbusA380" || "Airbus380" || "A380")
+    image(airplanes[8],10,10);
+    if (inp.value() == "AirbusA380" || inp.value() == "Airbus380" || inp.value() == "A380")
     {
       startTime = frameCount;
       counter++;
@@ -281,8 +271,8 @@ if (counter == 16)
 
   if (counter == 18)
   {
-    image(airplane10,10,10);
-    if (inp.value() == "AirbusA320" || "Airbus320" || "A320")
+    image(airplanes[9],10,10);
+    if (inp.value() == "AirbusA320" || inp.value() == "Airbus320" || inp.value() == "A320")
     {
       startTime = frameCount;
       counter++;
@@ -308,13 +298,12 @@ if (counter == 16)
   fill(0,0,0);
   text(frameCount,10,10);
   
-  
-  
-/*
-  fill(255,0,0);
-  ellipse(250,150,100,100);
-  
-  */
+}
+
+
+function section2_parts()
+{
+	
 }
 
 function nextButton()
