@@ -7,6 +7,7 @@ var counter;
 var startTime;
 var graspTime;
 var waitTime;
+var finalTime;
 
 // all airplane images placeholder
 var airplanes = [];
@@ -45,6 +46,8 @@ function setup(){
   inp = createInput('');
   inp.position(150,150);
 
+//  window.HELLO.test("Ben");
+
 
 }
 function draw(){
@@ -62,6 +65,9 @@ function section1_airplanes()
   var q = 0;
   var x = 0;
 
+
+
+
   while (q < 19)
   {
 	  if (counter == q)
@@ -73,6 +79,7 @@ function section1_airplanes()
 	      startTime = frameCount;
 	      counter++;
 	    }
+	    finalTime = frameCount/30;
 	  }
 
 	  q++;
@@ -95,9 +102,12 @@ function section1_airplanes()
 
   }
 
+  if (counter > 18)
+  {
+	  fill(0,0,0);
+	  text("Your time is: "+round(finalTime),10,10);  	
+  }
 
-  fill(0,0,0);
-  text(frameCount,10,10);
   
 }
 
