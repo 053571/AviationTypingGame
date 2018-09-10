@@ -10,6 +10,9 @@ var waitTime;
 
 // all airplane images placeholder
 var airplanes = [];
+var airplaneVariationName = ["Boeing737", "AirbusA330", "Boeing787", "Boeing747", "AirbusA350", "Embraer190", "Boeing777", "Boeing767", "AirbusA380", "AirbusA320"];
+var airplaneVariationName1 = ["BoeingB737", "Airbus330", "Boeing787Dreamliner", "B747", "A350", "E190", "B777", "B767", "Airbus380", "Airbus320"]
+var airplaneVariationName2 = ["B737", "A330", "Boeing DreamLiner", "Boeing747JumboJet", "Airbus350", "EmbraerE190", "BoeingB777", "BoeingB767", "A380", "A320"]
 
 var pictureFrame;
 
@@ -56,243 +59,41 @@ function draw(){
 function section1_airplanes()
 {
   
-  
-  if (counter == 0)
+  var q = 0;
+  var x = 0;
+
+  while (q < 19)
   {
-    image(airplanes[0],10,10,960/4,640/4);
-    fill(0,0,0);
-    text("Boeing737",10,50);
-    if (inp.value() == "Boeing737" || inp.value() == "737" || inp.value() == "B737")
-    {
-      startTime = frameCount;
-      counter++;
-    }
-  }
+	  if (counter == q)
+	  {
+	    image(airplanes[x],10,10,960/4,640/4);
+	    fill(0,0,0);
+	    if (inp.value() == airplaneVariationName[x] || inp.value() == airplaneVariationName1[x] || inp.value() == airplaneVariationName2[x])
+	    {
+	      startTime = frameCount;
+	      counter++;
+	    }
+	  }
 
-  if (counter == 1)
-  {
-    fill(0,0,0);
-    text("Congratuations you typed the correct word!",100,300);
+	  q++;
 
-    if ( frameCount >= startTime + waitTime )
-    {
-      counter++;
-      inp.value('');  
-    }
+	  if (counter == q)
+	  {
+	    fill(0,0,0);
+	    text("Congratuations you typed the correct word!",100,300);
 
-  }
+	    if ( frameCount >= startTime + waitTime )
+	    {
+	      counter++;
+	      inp.value('');  
+	    }
 
+	  }
 
-  if (counter == 2)
-  {
-    image(airplanes[1],10,10);
-    fill(0,0,0);
-    text("AirbusA330",10,50);
-    if (inp.value() == "AirbusA330" || inp.value() == "Airbus330" || inp.value() == "A330")
-    {
-      startTime = frameCount;
-      counter++;
-    }
-  }
-
-  if (counter == 3)
-  {
-    fill(0,0,0);
-    text("Congratuations you typed the correct word!",100,300);
-
-    if ( frameCount >= startTime + waitTime )
-    {
-      counter++;
-      inp.value('');  
-    }
+	  q++;
+	  x++;
 
   }
-
-if (counter == 4)
-  {
-    image(airplanes[2],10,10);
-    if (inp.value() == "Boeing787" || inp.value() == "Boeing787Dreamliner" || inp.value() == "Boeing DreamLiner" || inp.value() == "B787" || inp.value() == "B787Dreamliner")
-    {
-      startTime = frameCount;
-      counter++;
-    }
-  }
-
-  if (counter == 5)
-  {
-    fill(0,0,0);
-    text("Congratuations you typed the correct word!",100,300);
-
-    if ( frameCount >= startTime + waitTime )
-    {
-      counter++;
-      inp.value('');  
-    }
-
-  }
-
-  if (counter == 6)
-  {
-    image(airplanes[3],10,10);
-    if (inp.value() == "Boeing747" || inp.value() == "B747" || inp.value() == "Boeing747JumboJet")
-    {
-      startTime = frameCount;
-      counter++;
-    }
-  }
-
-  if (counter == 7)
-  {
-    fill(0,0,0);
-    text("Congratuations you typed the correct word!",100,300);
-
-    if ( frameCount >= startTime + waitTime )
-    {
-      counter++;
-      inp.value('');  
-    }
-
-  }
-
-  if (counter == 8)
-  {
-    image(airplanes[4],10,10);
-    if (inp.value() == "AirbusA350" || inp.value() == "350" || inp.value() == "Airbus350" || inp.value() == "AirbusA350XWB")
-    {
-      startTime = frameCount;
-      counter++;
-    }
-  }
-
-  if (counter == 9)
-  {
-    fill(0,0,0);
-    text("Congratuations you typed the correct word!",100,300);
-
-    if ( frameCount >= startTime + waitTime )
-    {
-      counter++;
-      inp.value('');  
-    }
-
-  }
-
-  if (counter == 10)
-  {
-    image(airplanes[5],10,10);
-    if (inp.value() == "Embraer190" || inp.value() == "E190")
-    {
-      startTime = frameCount;
-      counter++;
-    }
-  }
-
-  if (counter == 11)
-  {
-    fill(0,0,0);
-    text("Congratuations you typed the correct word!",100,300);
-
-    if ( frameCount >= startTime + waitTime )
-    {
-      counter++;
-      inp.value('');  
-    }
-
-  }
-
-if (counter == 12)
-  {
-    image(airplanes[6],10,10);
-    if (inp.value() == "Boeing777" || inp.value() == "B777")
-    {
-      startTime = frameCount;
-      counter++;
-    }
-  }
-
-  if (counter == 13)
-  {
-    fill(0,0,0);
-    text("Congratuations you typed the correct word!",100,300);
-
-    if ( frameCount >= startTime + waitTime )
-    {
-      counter++;
-      inp.value('');  
-    }
-
-  }
-
-  if (counter == 14)
-  {
-    image(airplanes[7],15,20);
-    if (inp.value() == "Boeing767" || inp.value() == "B767" || inp.value() == "Boeing767")
-    {
-      startTime = frameCount;
-      counter++;
-    }
-  }
-
-  if (counter == 15)
-  {
-    fill(0,0,0);
-    text("Congratuations you typed the correct word!",100,300);
-
-    if ( frameCount >= startTime + waitTime )
-    {
-      counter++;
-      inp.value('');  
-    }
-
-  }
-
-if (counter == 16)
-  {
-    image(airplanes[8],10,10);
-    if (inp.value() == "AirbusA380" || inp.value() == "Airbus380" || inp.value() == "A380")
-    {
-      startTime = frameCount;
-      counter++;
-    }
-  }
-
-  if (counter == 17)
-  {
-    fill(0,0,0);
-    text("Congratuations you typed the correct word!",100,300);
-
-    if ( frameCount >= startTime + waitTime )
-    {
-      counter++;
-      inp.value('');  
-    }
-
-  }
-
-  if (counter == 18)
-  {
-    image(airplanes[9],10,10);
-    if (inp.value() == "AirbusA320" || inp.value() == "Airbus320" || inp.value() == "A320")
-    {
-      startTime = frameCount;
-      counter++;
-    }
-  }
-
-  if (counter == 19)
-  {
-    fill(0,0,0);
-    text("Congratuations you typed the correct word!",100,300);
-
-    if ( frameCount >= startTime + waitTime )
-    {
-      counter++;
-      inp.value('');  
-    }
-    nextButton();
-  }
-
-
 
 
   fill(0,0,0);
