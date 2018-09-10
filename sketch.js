@@ -20,19 +20,27 @@ var airplane8;
 var airplane9;
 var airplane10;
 
+var pictureFrame;
+
 //function to get airplane images 
 function preload(){
+  
   airplane1 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Boeing737.jpg');
   airplane2 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/AirbusA330.jpg');
   airplane3 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Boeing787.jpg');
-  airplane4 = loadImage('https://053571.git hub.io/AviationTypingGame/AirplanePictures/Boeing747.jpg');
+
+
+  airplane4 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Boeing747.jpg');
   airplane5 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/AirbusA350.jpg');
+ 
   airplane6 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Embraer190.jpg');
   airplane7 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Boeing777.jpg');
   airplane8 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Boeing767.jpg');
   airplane9 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/AirbusA380.jpg');
   airplane10 = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/AirbusA320.jpg');
 
+
+  pictureFrame = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/AirbusA320.jpg');
 }
 
 function setup(){
@@ -61,7 +69,7 @@ function draw(){
   
   if (counter == 0)
   {
-    image(airplane1,10,10);
+    image(airplane1,10,10,960/4,640/4);
     fill(0,0,0);
     text("Boeing737",10,50);
     if (inp.value() == "Boeing737" || inp.value() == "737" || inp.value() == "B737")
