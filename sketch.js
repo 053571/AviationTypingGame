@@ -15,6 +15,11 @@ var airplanes = [];
 var airplaneVariationName = ["Boeing737", "AirbusA330", "Boeing787", "Boeing747", "AirbusA350", "Embraer190", "Boeing777", "Boeing767", "AirbusA380", "AirbusA320"];
 var airplaneVariationName1 = ["BoeingB737", "Airbus330", "Boeing787Dreamliner", "B747", "A350", "E190", "B777", "B767", "Airbus380", "Airbus320"]
 var airplaneVariationName2 = ["B737", "A330", "B787", "Boeing747JumboJet", "Airbus350", "EmbraerE190", "BoeingB777", "BoeingB767", "A380", "A320"]
+
+
+
+var airplaneName = ["B737", "A330", "B787", "B747", "A350", "E190", "B777", "B767", "A380", "A320"]
+
 var order = [];
 
 var pictureFrame;
@@ -28,7 +33,7 @@ function preload(){
   }
   
 
-  pictureFrame = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/AirbusA320.jpg');
+  pictureFrame = loadImage('https://053571.github.io/AviationTypingGame/Frame.png');
 }
 
 function setup(){
@@ -46,7 +51,9 @@ function setup(){
   waitTime = 50;
   
   inp = createInput('');
-  inp.position(150,150);
+  inp.position(180,350);
+
+  createOrder();
 
 //  window.HELLO.test("Ben");
 
@@ -76,9 +83,11 @@ function section1_airplanes()
   {
 	  if (counter == q)
 	  {
-	    image(airplanes[x],10,10,960/4,640/4);
+	  	var randomNum = order[x];
+	    image(airplanes[randomNum],120,10,960/4,640/4);
+	    image(pictureFrame,120,10,960/4,640/4);
 	    fill(0,0,0);
-	    if (inp.value() == airplaneVariationName[x] || inp.value() == airplaneVariationName1[x] || inp.value() == airplaneVariationName2[x])
+	    if (inp.value() == airplaneName[randomNum])
 	    {
 	      startTime = frameCount;
 	      counter++;
@@ -109,7 +118,7 @@ function section1_airplanes()
   if (counter > 18)
   {
 	  fill(0,0,0);
-	  text("Your time is: "+round(finalTime) + "seconds",10,10);  	
+	  text("Your time is: "+round(finalTime) + " seconds",10,10);  	
   }
 
   
@@ -118,16 +127,16 @@ function section1_airplanes()
 //Random function
 function createOrder()
 {
-	order[0] = random(0,10);
+	order[0] = int(random(0,10));
 
 	for (var i = 1; i < 10; i++)
 	{
 		var flag = true;
 		while (flag == true)
 		{
-			tempValue =  random(0,10);
+			tempValue =  int(random(0,10));
 			flag = false;
-			for(var j = 0; j < 10, j++) 
+			for(var j = 0; j < 10; j++) 
 			{
 				if (tempValue == order[j])
 				{
@@ -142,6 +151,11 @@ function createOrder()
 	
 	}
 	
+}
+
+function internationalAirplaneScan()
+{
+
 }
 
 
