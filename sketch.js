@@ -12,13 +12,14 @@ var tempValue;
 
 // all airplane images placeholder
 var airplanes = [];
-var airplaneVariationName = ["Boeing737", "AirbusA330", "Boeing787", "Boeing747", "AirbusA350", "Embraer190", "Boeing777", "Boeing767", "AirbusA380", "AirbusA320"];
-var airplaneVariationName1 = ["BoeingB737", "Airbus330", "Boeing787Dreamliner", "B747", "A350", "E190", "B777", "B767", "Airbus380", "Airbus320"]
-var airplaneVariationName2 = ["B737", "A330", "B787", "Boeing747JumboJet", "Airbus350", "EmbraerE190", "BoeingB777", "BoeingB767", "A380", "A320"]
+//var airplaneVariationName = ["Boeing737", "AirbusA330", "Boeing787", "Boeing747", "AirbusA350", "Embraer190", "Boeing777", "Boeing767", "AirbusA380", "AirbusA320"];
+//var airplaneVariationName1 = ["BoeingB737", "Airbus330", "Boeing787Dreamliner", "B747", "A350", "E190", "B777", "B767", "Airbus380", "Airbus320"]
+//var airplaneVariationName2 = ["B737", "A330", "B787", "Boeing747JumboJet", "Airbus350", "EmbraerE190", "BoeingB777", "BoeingB767", "A380", "A320"]
 
 
 
 var airplaneName = ["B737", "A330", "B787", "B747", "A350", "E190", "B777", "B767", "A380", "A320"]
+var airplaneCompany = ["B", "A", "B", "B", "A", "E", "B", "B", "A", "A"]
 
 var order = [];
 
@@ -87,7 +88,7 @@ function section1_airplanes()
 	    image(airplanes[randomNum],120,10,960/4,640/4);
 	    image(pictureFrame,120,10,960/4,640/4);
 	    fill(0,0,0);
-	    if (inp.value() == airplaneName[randomNum])
+	    if (checkAirplaneName(randomNum))
 	    {
 	      startTime = frameCount;
 	      counter++;
@@ -153,9 +154,62 @@ function createOrder()
 	
 }
 
-function internationalAirplaneScan()
+function checkAirplaneName(randomNum)
 {
+	// store user input into temporary variable
+	var temp = inp.value();
+	var number = false;
+	var letter = false; 
+	var countNumbers = 0;
 
+	// extract original triplet of numbers
+
+	var numberTriplet = airplaneName[randomNum].substring(1,4);
+	var airplaneLetter = airplaneName[randomNum].substring(0,1);
+
+
+	// scan what user typed in
+	// scanning for a triplet of numbers
+	// and a specific letter
+
+
+	for (var i = 0; i < temp.length; i++)
+	{
+		if (numberTriplet == temp.substring(i,i+3))
+		{
+			number = true;
+		}
+		if (airplaneLetter == temp.substring(i,i+1))
+		{
+			letter = true;
+		}
+	}
+
+
+	for (var i = 0; i < temp.length; i++)
+	{
+		var isANumber = int(temp.substring(i,i+1));
+		if (isANumber>=0 && isANumber<=9)
+		{
+			countNumbers++;
+		}
+		if (countNumbers > 4)
+		{
+			number = false;
+		}
+	}
+
+
+
+
+	text(number,10,300);
+	text(letter,10,350);
+
+	if (number == true && letter == true)
+	{
+		return true;
+	}
+	return false;
 }
 
 
