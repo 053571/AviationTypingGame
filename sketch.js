@@ -8,12 +8,14 @@ var startTime;
 var graspTime;
 var waitTime;
 var finalTime;
+var tempValue;
 
 // all airplane images placeholder
 var airplanes = [];
 var airplaneVariationName = ["Boeing737", "AirbusA330", "Boeing787", "Boeing747", "AirbusA350", "Embraer190", "Boeing777", "Boeing767", "AirbusA380", "AirbusA320"];
 var airplaneVariationName1 = ["BoeingB737", "Airbus330", "Boeing787Dreamliner", "B747", "A350", "E190", "B777", "B767", "Airbus380", "Airbus320"]
-var airplaneVariationName2 = ["B737", "A330", "Boeing DreamLiner", "Boeing747JumboJet", "Airbus350", "EmbraerE190", "BoeingB777", "BoeingB767", "A380", "A320"]
+var airplaneVariationName2 = ["B737", "A330", "B787", "Boeing747JumboJet", "Airbus350", "EmbraerE190", "BoeingB777", "BoeingB767", "A380", "A320"]
+var order = [];
 
 var pictureFrame;
 
@@ -58,6 +60,8 @@ function draw(){
   section1_airplanes();
   
 }
+
+
 
 function section1_airplanes()
 {
@@ -105,17 +109,41 @@ function section1_airplanes()
   if (counter > 18)
   {
 	  fill(0,0,0);
-	  text("Your time is: "+round(finalTime),10,10);  	
+	  text("Your time is: "+round(finalTime) + "seconds",10,10);  	
   }
 
   
 }
 
-
-function section2_parts()
+//Random function
+function createOrder()
 {
+	order[0] = random(0,10);
+
+	for (var i = 1; i < 10; i++)
+	{
+		var flag = true;
+		while (flag == true)
+		{
+			tempValue =  random(0,10);
+			flag = false;
+			for(var j = 0; j < 10, j++) 
+			{
+				if (tempValue == order[j])
+				{
+					flag = true;
+				}
+			
+			}
+
+		}
+
+		order[i] = tempValue;
+	
+	}
 	
 }
+
 
 function nextButton()
 {
