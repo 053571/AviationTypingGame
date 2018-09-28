@@ -9,6 +9,7 @@ var graspTime;
 var waitTime;
 var finalTime;
 var tempValue;
+var tempString;
 
 // all airplane images placeholder
 var airplanes = [];
@@ -17,6 +18,7 @@ var airplanes = [];
 //var airplaneVariationName2 = ["B737", "A330", "B787", "Boeing747JumboJet", "Airbus350", "EmbraerE190", "BoeingB777", "BoeingB767", "A380", "A320"]
 
 
+var userInput;
 
 var airplaneName = ["B737", "A330", "B787", "B747", "A350", "E190", "B777", "B767", "A380", "A320"]
 var airplaneCompany = ["B", "A", "B", "B", "A", "E", "B", "B", "A", "A"]
@@ -50,9 +52,12 @@ function setup(){
   nextButtonY = 125;
 
   waitTime = 50;
+
+  tempString = "";
   
   inp = createInput('');
   inp.position(180,350);
+  inp.input(limitStringIdentification);
 
   createOrder();
 
@@ -65,8 +70,31 @@ function draw(){
    //draw circle in centre of sketch
   background(255,255,0);
 
+
+  text(tempString,10,50);
+
   section1_airplanes();
   
+}
+
+function limitStringIdentification()
+{
+
+//Proven that these two lines show the length of the string
+  userInput = inp.value();
+
+  text(userInput.length,10,10);
+
+
+  if (userInput.length < 12)
+  {
+  	tempString = userInput;
+  }
+  if (userInput.length >= 12)
+  {
+  	inp.value(tempString);
+  }
+
 }
 
 
