@@ -26,6 +26,17 @@ var airplaneCompany = ["B", "A", "B", "B", "A", "E", "B", "B", "A", "A"]
 var order = [];
 
 var pictureFrame;
+var startScreen;
+
+
+//navigation essentailly like counter where it aids in navigating the different sections of the code
+// navigation = 0; Start screen is loaded. 
+// navigation = 1; Main menu is loaded.
+//navigation = 2; Highscore is loaded. 
+//navigation = 3; Airplane Identification game is loaded;
+//navigation = 4; Airplane Parts game is loaded; 
+
+var navigation;
 
 //function to get airplane images 
 function preload(){
@@ -37,6 +48,8 @@ function preload(){
   
 
   pictureFrame = loadImage('https://053571.github.io/AviationTypingGame/Frame.png');
+
+  additionalPhotos();
 }
 
 function setup(){
@@ -58,8 +71,11 @@ function setup(){
   inp = createInput('');
   inp.position(180,350);
   inp.input(limitStringIdentification);
+  inp.hide();
 
   createOrder();
+
+  navigation = 0;
 
 //  window.HELLO.test("Ben");
 
@@ -71,9 +87,30 @@ function draw(){
   background(255,255,0);
 
 
+
+  switch (navigation) {
+    case 0:
+		startScreen();
+		break;
+    case 1:
+		mainMenu();
+		break;
+    case 2:
+		highScore();
+		break;
+    case 3:
+		airplaneIdentification();
+		break;
+    case 4:
+		airplaneParts();
+		break;
+  }
+
+
+
   text(tempString,10,50);
 
-  section1_airplanes();
+//  section1_airplanes();
   
 }
 
