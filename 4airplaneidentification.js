@@ -56,10 +56,6 @@ function preload(){
 function setup(){
   //create a drawing service 500px wide, 500px tall
   createCanvas(500,500);
-
-
-  setupMainMenu();
-
   
   frameRate(30);
 
@@ -88,7 +84,9 @@ function setup(){
 }
 function draw(){
 
-	background(0,0,0);
+   //draw circle in centre of sketch
+  background(255,255,0);
+
 
 
   switch (navigation) {
@@ -96,27 +94,22 @@ function draw(){
 		loadStartScreen();
 		break;
     case 1:
-		loadMainMenu();
+		mainMenu();
 		break;
     case 2:
-		loadHighScore();
+		highScore();
 		break;
     case 3:
-		loadAirplaneIdentification();
+		airplaneIdentification();
 		break;
     case 4:
-		loadAirplaneParts();
-		break;
-	default:
-		loadStartScreen();
+		airplaneParts();
 		break;
   }
 
-  fill(255,255,255);
 
-  text(navigation,10,100);
 
-//  text(tempString,10,50);
+  text(tempString,10,50);
 
 //  section1_airplanes();
   
@@ -319,16 +312,4 @@ function nextButton()
     }
 
 
-}
-
-function mouseReleased()
-{
-	if (navigation == -1)
-	{
-		navigation = 1;
-	}
-	if (navigation == -2)
-	{
-		navigation = 0;
-	}
 }
