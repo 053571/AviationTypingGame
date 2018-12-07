@@ -18,6 +18,7 @@ function setupMainMenu() {
 	game2Y = 250;
 	backX = 200;
 	backY = 350;
+	console.log('setupMainMenu')
 }
 
 function loadMainMenu() {
@@ -51,6 +52,10 @@ function loadMainMenu() {
     }
     else
     {
+//	    console.log('high score');
+	    console.log(highScoreX);
+
+
 		fill(53, 212, 35);
 		rect(highScoreX,highScoreY,100,50);    	
 
@@ -58,7 +63,7 @@ function loadMainMenu() {
 		text("High Score",highScoreX + 24,highScoreY + 25);
 
     }
-
+//    console.log('main menu');
  	// -------------------------------------------------
  	// High Score button - End
 

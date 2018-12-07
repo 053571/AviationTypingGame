@@ -57,7 +57,7 @@ function setup(){
   //create a drawing service 500px wide, 500px tall
   createCanvas(500,500);
 
-
+  console.log('setup');
   setupMainMenu();
 
   

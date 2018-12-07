@@ -53,7 +53,13 @@ function preload(){
 //  additionalPhotos();
 }
 
-function setup(){
+function loadAirplaneIdentification()
+{
+	// Dec 07 left off here
+	section1_airplanes();
+}
+
+function setupAirplaneID(){
   //create a drawing service 500px wide, 500px tall
   createCanvas(500,500);
   
@@ -81,38 +87,6 @@ function setup(){
 //  window.HELLO.test("Ben");
 
 
-}
-function draw(){
-
-   //draw circle in centre of sketch
-  background(255,255,0);
-
-
-
-  switch (navigation) {
-    case 0:
-		loadStartScreen();
-		break;
-    case 1:
-		mainMenu();
-		break;
-    case 2:
-		highScore();
-		break;
-    case 3:
-		airplaneIdentification();
-		break;
-    case 4:
-		airplaneParts();
-		break;
-  }
-
-
-
-  text(tempString,10,50);
-
-//  section1_airplanes();
-  
 }
 
 function limitStringIdentification()
