@@ -42,11 +42,14 @@ function preload(){
 
 	preloadStartScreen1();
 
+
+
+/*
   for (var i = 0; i < 10; i++)
   {
 	  airplanes[i] = loadImage('https://053571.github.io/AviationTypingGame/AirplanePictures/Plane'+(i+1)+'.jpg');
   }
-  
+  */
 
   pictureFrame = loadImage('https://053571.github.io/AviationTypingGame/Frame.png');
 
@@ -55,8 +58,12 @@ function preload(){
 
 function loadAirplaneIdentification()
 {
+	console.log('Game 1 start');
 	// Dec 07 left off here
-	section1_airplanes();
+	if (areImagesReady() == true)
+	{
+		section1_airplanes();
+	}
 }
 
 function setupAirplaneID(){
@@ -113,7 +120,8 @@ function limitStringIdentification()
 
 function section1_airplanes()
 {
-  
+  background(125,125,125);
+
   var q = 0;
   var x = 0;
 
@@ -125,7 +133,8 @@ function section1_airplanes()
 	  if (counter == q)
 	  {
 	  	var randomNum = order[x];
-	    image(airplanes[randomNum],120,10,960/4,640/4);
+	  	console.log(randomNum);
+		showAirplane(randomNum,120,10,960/4,640/4);
 	    image(pictureFrame,120,10,960/4,640/4);
 	    fill(0,0,0);
 	    if (checkAirplaneName(randomNum))
@@ -140,8 +149,8 @@ function section1_airplanes()
 
 	  if (counter == q)
 	  {
-	    fill(0,0,0);
-	    text("Congratuations you typed the correct word!",100,300);
+//	    fill(0,0,0);
+//	    text("Congratuations you typed the correct word!",100,300);
 
 	    if ( frameCount >= startTime + waitTime )
 	    {

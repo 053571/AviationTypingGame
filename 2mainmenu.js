@@ -18,7 +18,7 @@ function setupMainMenu() {
 	game2Y = 250;
 	backX = 200;
 	backY = 350;
-	console.log('setupMainMenu')
+//	console.log('setupMainMenu')
 }
 
 function loadMainMenu() {
@@ -86,6 +86,7 @@ function loadMainMenu() {
 
 		if (mouseIsPressed)
 		{
+			inp.show();
 			navigation = 3; 
 		}
 
